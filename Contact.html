@@ -269,8 +269,9 @@
                 Réponse garantie sous 48h ouvrées
             </div>
         </div>
-        <form id="contact-form" action="https://formspree.io/f/xvzzvvjb" method="POST"
+        <form id="contact-form"
             class="mx-auto mt-16 max-w-2xl bg-white p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-2xl shadow-blue-900/5 border border-slate-100 relative z-10">
+
             <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                 <div>
                     <label for="last-name"
@@ -406,56 +407,40 @@
             </div>
         </div>
     </footer>
-    <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('open');
-        });
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            // Initialisation avec ta clé publique
+            emailjs.init("RW5ji-yzV7CLanIQp");
+        })();
     </script>
 
-
-
     <script>
-        // 1. GESTION DU MENU MOBILE (Noms de variables uniques : navBtn et navMenu)
-        const navBtn = document.getElementById('menu-btn');
-        const navMenu = document.getElementById('mobile-menu');
 
-        if (navBtn && navMenu) {
-            navBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-            });
-        }
 
-        // 2. GESTION DE L'ENVOI DU FORMULAIRE (AJAX)
+        // --- 2. GESTION DE L'ENVOI EMAILJS ---
         const contactForm = document.getElementById("contact-form");
         const successBox = document.getElementById("success-message");
 
-        // On vérifie si le formulaire existe avant d'ajouter l'écouteur
         if (contactForm) {
             const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-            async function handleSubmit(event) {
-                event.preventDefault(); // Empêche la redirection vers Formspree
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Empêche le rechargement de la page
 
                 // Verrouillage du bouton
                 submitBtn.disabled = true;
                 submitBtn.innerText = "Envoi en cours...";
 
-                const data = new FormData(event.target);
-
-                fetch(event.target.action, {
-                    method: contactForm.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        // Succès : on affiche le message vert
+                // Envoi des données vers ton service EmailJS
+                emailjs.sendForm('service_eb5y7eg', 'template_jgy9099', contactForm)
+                    .then(function () {
+                        // Succès : Affiche le message de confirmation
                         if (successBox) successBox.classList.remove("hidden");
-                        contactForm.reset(); // Vide les champs
+                        contactForm.reset();
                         submitBtn.innerText = "Envoyé !";
 
                         // Réinitialisation après 5 secondes
@@ -464,21 +449,18 @@
                             submitBtn.disabled = false;
                             submitBtn.innerText = "Envoyer ma demande";
                         }, 5000);
-                    } else {
-                        alert("Oups ! Un problème est survenu lors de l'envoi.");
+                    }, function (error) {
+                        // Erreur
+                        alert("Désolé, une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+                        console.error("Détails de l'erreur EmailJS:", error);
                         submitBtn.disabled = false;
                         submitBtn.innerText = "Envoyer ma demande";
-                    }
-                }).catch(error => {
-                    alert("Erreur de connexion au serveur.");
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Envoyer ma demande";
-                });
-            }
-
-            contactForm.addEventListener("submit", handleSubmit);
+                    });
+            });
         }
     </script>
+
+
 </body>
 
 </html>
