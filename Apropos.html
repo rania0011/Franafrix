@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franafrix | À Propos</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        /* Animation texte défilant */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        /* Cache le menu mobile par défaut et prépare l'animation */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.open {
+            max-height: 400px;
+            /* Hauteur max du menu ouvert */
+            border-bottom: 1px border-slate-100;
+        }
+
+        /* =========================
+   RESPONSIVE MOBILE 
+   ========================= */
+
+        @media (max-width: 768px) {
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .hero-pattern {
+                background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+                background-size: 24px 24px;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .animate-scroll {
+                display: flex;
+                width: max-content;
+                animation: scroll 60s linear infinite;
+            }
+
+            /* Animation Side Menu */
+            #menu-overlay.hidden {
+                display: none;
+            }
+
+            #menu-overlay.show {
+                display: block;
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
+    </div>
+
+    <div id="mobile-drawer"
+        class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
+        <div class="p-8 h-full flex flex-col">
+            <button id="close-btn" class="self-end mb-12 text-slate-900">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+
+
+            <div class="flex flex-col space-y-9 font-bold uppercase text-[15px] tracking-[0.2em] text-slate-900">
+                <a href="index.html" class="hover:text-blue-600">Accueil</a>
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+
+                <div class="flex flex-col">
+                    <button class="flex justify-between items-center w-full uppercase"
+                        onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
+                        Services <span class="text-[10px]">▼</span>
+                    </button>
+                    <div id="drawer-submenu"
+                        class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
+                        <a href="Conseil&DeveloppementIT.html">Développement IT</a>
+                        <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
+                        <a href="Fourniture.html">Vente & Export</a>
+                    </div>
+                </div>
+
+                <a href="Apropos.html" class="text-blue-600 transition">À Propos</a>
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            <div class="mt-auto pt-8 border-t border-slate-50">
+                <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="text-2xl font-black tracking-tighter text-blue-900">
+                    FRANAFRIX
+                </div>
+                <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
+            </div>
+            <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- MENU BUREAU -->
+            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600">
+
+                <a href="index.html">Accueil</a> <!-- plus bleu -->
+
+                <!-- Menu Services avec sous-menu -->
+                <div class="relative group cursor-pointer">
+                    <button class="flex items-center gap-1 hover:text-blue-600 transition uppercase text-[12px]">
+                        Services ▾
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
+                        <a href="Conseil&DeveloppementIT.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Développement & Integration IT
+                        </a>
+                        <a href="SolutionsServiceNow.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Solutions ServiceNow
+                        </a>
+                        <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
+                            Vente & Export
+                        </a>
+                    </div>
+                </div>
+
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+                <a href="Apropos.html" class="text-blue-600 transition">À Propos</a> <!-- ici bleu -->
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+            </div>
+
+    </nav>
+
+    <script>
+        const openBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (!isOpen) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('opacity-100');
+                    drawer.classList.remove('-translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('opacity-100');
+                drawer.classList.add('-translate-x-full');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+
+    <section class="relative pt-48 pb-24 overflow-hidden bg-[#fafafa]">
+        <div class="absolute inset-0 z-0 opacity-[0.03]"
+            style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 50px 50px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <div class="lg:col-span-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-[1px] w-12 bg-blue-600"></div>
+                        <span class="text-blue-600 font-bold tracking-[0.2em] uppercase text-sm">Qui sommes-nous
+                            ?</span>
+                    </div>
+
+                    <h1
+                        class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug tracking-tight mb-4 sm:mb-6">
+                        Solutions technologiques et industrielles <br>
+                        <span class="text-slate-400 text-base sm:text-lg md:text-2xl font-semibold">développées en
+                            France</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 font-light leading-relaxed mb-4 sm:mb-6 max-w-full">
+                        Franafrix est votre partenaire de confiance pour la transformation digitale et l’équipement
+                        professionnel.
+                        Entreprise spécialisée dans le développement IT, l’intégration d’applicatifs et la fourniture de
+                        solutions
+                        technologiques de pointe.
+                    </p>
+
+                    <p class="mt-2 sm:mt-4 text-blue-600 font-bold uppercase tracking-widest italic text-xs sm:text-sm">
+                        EXPERTISE FRANÇAISE – PORTÉE INTERNATIONALE
+                    </p>
+
+                    <div class="mt-6 sm:mt-8 flex flex-wrap gap-4 sm:gap-6">
+                        <a href="Contact.html"
+                            class="px-6 py-3 sm:px-10 sm:py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-blue-600 transition-all duration-300 text-sm sm:text-base">
+                            Démarrer un projet
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="flex -space-x-3">
+                                <div
+                                    class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">
+                                    IT</div>
+                                <div
+                                    class="w-10 h-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[10px] font-bold text-blue-600">
+                                    SN</div>
+                                <div
+                                    class="w-10 h-10 rounded-full border-2 border-white bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-600">
+                                    LOG</div>
+                            </div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none">
+                                Solutions<br>Intégrées
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 relative mt-6 lg:mt-0">
+                    <div
+                        class="relative w-full aspect-square bg-white border border-slate-100 shadow-lg rounded-xl p-1 rotate-3">
+                        <img src="image5.png"
+                            class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0 transition-all duration-700"
+                            alt="Technologie Globale">
+
+                        <div class="absolute -bottom-2 -left-2 bg-blue-600 text-white p-2 rounded-lg shadow-md">
+                            <p class="text-lg font-black italic tracking-tighter">10</p>
+                            <p class="text-[7px] uppercase font-bold tracking-widest opacity-80">Ans d'expérience</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-32 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-slate-200 pt-12">
+                <div>
+                    <p class="text-slate-400 text-sm md:text-xs font-bold uppercase tracking-[0.2em] mb-2">Localisation
+                    </p>
+                    <p class="text-slate-900 font-bold italic text-base md:text-lg tracking-tight">Seine-et-Marne, FR
+                    </p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-sm md:text-xs font-bold uppercase tracking-[0.2em] mb-2">Spécialité
+                    </p>
+                    <p class="text-slate-900 font-bold italic text-base md:text-lg tracking-tight">ServiceNow Partner
+                    </p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-sm md:text-xs font-bold uppercase tracking-[0.2em] mb-2">Logistique
+                    </p>
+                    <p class="text-slate-900 font-bold italic text-base md:text-lg tracking-tight">Export Mondial</p>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-sm md:text-xs font-bold uppercase tracking-[0.2em] mb-2">Engagement
+                    </p>
+                    <p class="text-slate-900 font-bold italic text-base md:text-lg tracking-tight">Qualité Française</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+                <!-- IMAGE -->
+                <div class="lg:w-1/2 relative w-full">
+                    <div class="absolute -inset-4 bg-emerald-600/5 rounded-[2rem] rotate-3"></div>
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80"
+                            class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                            alt="Lamine NDIAYE - Gérant">
+                        <div
+                            class="absolute bottom-0 inset-x-0 p-6 sm:p-10 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent text-white">
+                            <p class="text-xl sm:text-2xl font-black italic">Lamine NDIAYE</p>
+                            <p class="text-emerald-400 font-bold text-[9px] sm:text-xs uppercase tracking-widest">Gérant
+                                &
+                                Fondateur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEXTE -->
+                <div class="lg:w-1/2 w-full mt-6 lg:mt-0">
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-6 sm:mb-8 tracking-tight italic">
+                        Une vision intégrée des solutions
+                    </h2>
+                    <div class="space-y-4 sm:space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed italic">
+                        <p>
+                            Fort de <span class="text-slate-900 font-bold">10 années d'expérience</span> approfondie
+                            dans
+                            l'écosystème ServiceNow, j'ai développé une conviction forte : les entreprises modernes ont
+                            besoin de solutions cohérentes, pilotées avec rigueur.
+                        </p>
+                        <p>
+                            Franafrix propose une alternative intégrée où l'expertise technologique et la capacité de
+                            déploiement logistique se rejoignent pour créer une véritable valeur ajoutée, sans la
+                            complexité de multiplier les prestataires.
+                        </p>
+                    </div>
+
+                    <div
+                        class="mt-8 sm:mt-12 p-6 sm:p-8 bg-slate-50 rounded-[2rem] border-l-4 sm:border-l-8 border-emerald-500 italic">
+                        <p class="text-slate-900 font-bold mb-2 text-sm sm:text-base">Notre Engagement :</p>
+                        <p class="text-slate-600 text-sm sm:text-base">Accompagner nos clients sur toute la chaîne de
+                            valeur, du conseil stratégique jusqu'à la mise en œuvre opérationnelle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-16 sm:mb-20 italic">Notre Mission
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <div
+                    class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm hover:shadow-xl transition-all group">
+                    <div
+                        class="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-50 text-emerald-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-4">Faciliter la transformation
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 italic">Accompagner les organisations dans leur
+                        évolution
+                        technologique avec des solutions éprouvées.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm hover:shadow-xl transition-all group">
+                    <div
+                        class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-50 text-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-4">Fournir du fiable</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 italic">Livrer du matériel professionnel certifié
+                        conforme
+                        aux normes internationales les plus strictes.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm hover:shadow-xl transition-all group">
+                    <div
+                        class="w-12 h-12 sm:w-16 sm:h-16 bg-indigo-50 text-indigo-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-4">Sécuriser l'export</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 italic">Garantir la conformité et la traçabilité sur
+                        toute
+                        la chaîne de valeur mondiale.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] shadow-sm hover:shadow-xl transition-all group">
+                    <div
+                        class="w-12 h-12 sm:w-16 sm:h-16 bg-slate-100 text-slate-900 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 group-hover:bg-slate-900 group-hover:text-white transition">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-4">Créer de la valeur</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 italic">Construire des partenariats durables basés sur
+                        la
+                        confiance et l'amélioration continue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 italic tracking-tighter mb-4 md:mb-6">
+                        Nos Valeurs Fondamentales
+                    </h2>
+                    <div class="w-16 h-1.5 bg-emerald-500 rounded-full mx-auto md:mx-0"></div>
+                </div>
+
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
+                    <div>
+                        <h4
+                            class="text-base sm:text-lg font-black uppercase tracking-widest text-emerald-600 mb-2 sm:mb-3">
+                            Excellence Technique
+                        </h4>
+                        <p class="text-slate-500 italic text-xs sm:text-sm">Expertise pointue et veille permanente pour
+                            des
+                            solutions de pointe.</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-base sm:text-lg font-black uppercase tracking-widest text-blue-600 mb-2 sm:mb-3">
+                            Fiabilité & Transparence
+                        </h4>
+                        <p class="text-slate-500 italic text-xs sm:text-sm">Engagement sur les résultats et traçabilité
+                            totale de nos interventions.</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-base sm:text-lg font-black uppercase tracking-widest text-indigo-600 mb-2 sm:mb-3">
+                            Engagement Client
+                        </h4>
+                        <p class="text-slate-500 italic text-xs sm:text-sm">Écoute active et accompagnement personnalisé
+                            à
+                            chaque étape.</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-base sm:text-lg font-black uppercase tracking-widest text-slate-900 mb-2 sm:mb-3">
+                            Adaptabilité
+                        </h4>
+                        <p class="text-slate-500 italic text-xs sm:text-sm">Compréhension des spécificités culturelles
+                            des
+                            marchés locaux.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-950 text-center text-white overflow-hidden relative">
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-black mb-10 italic tracking-tighter">
+                Prêt à collaborer avec une structure experte et agile ?
+            </h2>
+
+            <a href="Contact.html"
+                class="inline-block bg-emerald-500 text-slate-950 px-6 sm:px-12 py-3 sm:py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition shadow-2xl">
+                Lancer la discussion
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-slate-900 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
+                    <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
+                    <a href="mailto:franafrix@gmail.com"
+                        class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
+                    <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
+                </div>
+            </div>
+
+            <div class="h-px w-full bg-slate-800 mb-8"></div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
+                <div class="text-slate-500">
+                    © 2024 Franafrix International — Tous droits réservés
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
+                    <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
+                    <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

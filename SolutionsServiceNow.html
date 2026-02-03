@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert ServiceNow | Franafrix</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        .sn-gradient {
+            background: linear-gradient(135deg, #293e40 0%, #032d32 100%);
+        }
+
+        /* =========================
+   RESPONSIVE MOBILE 
+   ========================= */
+
+        @media (max-width: 768px) {
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .hero-pattern {
+                background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+                background-size: 24px 24px;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .animate-scroll {
+                display: flex;
+                width: max-content;
+                animation: scroll 60s linear infinite;
+            }
+
+            /* Animation Side Menu */
+            #menu-overlay.hidden {
+                display: none;
+            }
+
+            #menu-overlay.show {
+                display: block;
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
+    </div>
+
+    <div id="mobile-drawer"
+        class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
+        <div class="p-8 h-full flex flex-col">
+            <button id="close-btn" class="self-end mb-12 text-slate-900">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+
+
+            <div class="flex flex-col space-y-9 font-bold uppercase text-[15px] tracking-[0.2em] text-slate-900">
+                <a href="index.html" class="hover:text-blue-600">Accueil</a>
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+
+                <div class="flex flex-col">
+                    <button class="flex justify-between items-center w-full uppercase  text-blue-600"
+                        onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
+                        Services <span class="text-[10px]">▼</span>
+                    </button>
+                    <div id="drawer-submenu"
+                        class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
+                        <a href="Conseil&DeveloppementIT.html">Développement IT</a>
+                        <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
+                        <a href="Fourniture.html">Vente & Export</a>
+                    </div>
+                </div>
+
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a>
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            <div class="mt-auto pt-8 border-t border-slate-50">
+                <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="text-2xl font-black tracking-tighter text-blue-900">
+                    FRANAFRIX
+                </div>
+                <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
+            </div>
+            <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- MENU BUREAU -->
+            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600">
+
+                <a href="index.html">Accueil</a> <!-- plus bleu -->
+
+                <!-- Menu Services avec sous-menu -->
+                <div class="relative group cursor-pointer">
+                    <button class="flex items-center gap-1 text-blue-600 transition uppercase text-[12px]">
+                        Services ▾
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
+                        <a href="Conseil&DeveloppementIT.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Développement & Integration IT
+                        </a>
+                        <a href="SolutionsServiceNow.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Solutions ServiceNow
+                        </a>
+                        <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
+                            Vente & Export
+                        </a>
+                    </div>
+                </div>
+
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a> <!-- ici bleu -->
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+            </div>
+
+
+    </nav>
+
+    <script>
+        const openBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (!isOpen) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('opacity-100');
+                    drawer.classList.remove('-translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('opacity-100');
+                drawer.classList.add('-translate-x-full');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+
+
+    <section class="relative pt-32 pb-20 sn-gradient overflow-hidden text-white">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1551288049-bbda48658a7d?auto=format&fit=crop&q=80"
+                class="w-full h-full object-cover" alt="ServiceNow Dashboard">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <span class="text-emerald-400 font-bold tracking-[0.3em] uppercase text-sm mb-3 block md:text-sm md:mb-4">
+                Partenaire d'Excellence
+            </span>
+            <h1 class="text-3xl md:text-6xl font-extrabold mb-4 md:mb-6 italic leading-tight">
+                Intégration & Optimisation <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+                    ServiceNow.
+                </span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-300 max-w-3xl font-light italic leading-relaxed">
+                Plus de 10 ans d'expertise dans l'écosystème ServiceNow pour transformer vos processus métiers en
+                workflows
+                digitaux fluides et performants.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-2xl md:text-3xl lg:text-5xl font-black text-slate-900 italic mb-6 tracking-tight">
+                    Les modules que nous maîtrisons
+                </h2>
+                <p class="text-base md:text-base lg:text-lg text-slate-500 italic leading-relaxed">
+                    Chaque module est configuré pour transformer vos processus métiers et
+                    maximiser la performance de vos équipes au quotidien.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- ITSM -->
+                <div
+                    class="group relative p-6 md:p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-blue-500/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center font-black mb-4 md:mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            ITSM
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 italic">IT Service
+                            Management
+                        </h3>
+                        <p class="text-sm md:text-sm text-slate-500 leading-relaxed mb-3 md:mb-4">
+                            Gestion centralisée des incidents, changements et problèmes pour une IT réactive.
+                        </p>
+                        <span
+                            class="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Expertise Certifiée
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ITOM -->
+                <div
+                    class="group relative p-6 md:p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-emerald-500/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center font-black mb-4 md:mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                            ITOM
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 italic">IT Operations
+                            Management
+                        </h3>
+                        <p class="text-sm md:text-sm text-slate-500 leading-relaxed mb-3 md:mb-4">
+                            Visibilité totale de l'infrastructure et automatisation de l'orchestration.
+                        </p>
+                        <span
+                            class="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Visibilité Totale
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CSM -->
+                <div
+                    class="group relative p-6 md:p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:border-indigo-500/30 transition-all duration-500 overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-indigo-500/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-black mb-4 md:mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                            CSM
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 italic">Customer Service
+                            Management</h3>
+                        <p class="text-sm md:text-sm text-slate-500 leading-relaxed mb-3 md:mb-4">
+                            Portails self-service et outils de résolution pour une satisfaction client boostée.
+                        </p>
+                        <span
+                            class="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Expérience Client
+                        </span>
+                    </div>
+                </div>
+
+                <!-- HRSD -->
+                <div
+                    class="group relative p-6 md:p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:border-purple-500/30 transition-all duration-500 overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-purple-500/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center font-black mb-4 md:mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                            HRSD
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 italic">HR Service Delivery
+                        </h3>
+                        <p class="text-sm md:text-sm text-slate-500 leading-relaxed mb-3 md:mb-4">
+                            Digitalisation du parcours collaborateur, de l'onboarding au support RH.
+                        </p>
+                        <span
+                            class="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Workflows RH
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 text-white" style="background-color: #1f3a8a;">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-around gap-8 md:gap-12">
+
+            <div class="text-center group">
+                <span
+                    class="block text-4xl md:text-6xl font-black italic tracking-tighter mb-1 md:mb-2 transition-transform group-hover:scale-110 duration-500">
+                    10+ Ans
+                </span>
+                <span class="text-blue-200 uppercase tracking-[0.15em] text-[9px] md:text-[11px] font-bold opacity-80">
+                    D'Expertise ServiceNow
+                </span>
+            </div>
+
+            <div class="hidden md:block h-16 w-px bg-gradient-to-b from-transparent via-blue-400/40 to-transparent">
+            </div>
+
+            <div class="md:hidden w-16 h-px bg-blue-400/30"></div>
+
+            <div class="text-center group">
+                <span
+                    class="block text-4xl md:text-6xl font-black italic tracking-tighter mb-1 md:mb-2 transition-transform group-hover:scale-110 duration-500">
+                    100%
+                </span>
+                <span class="text-blue-200 uppercase tracking-[0.15em] text-[9px] md:text-[11px] font-bold opacity-80">
+                    Conformité ITIL
+                </span>
+            </div>
+
+        </div>
+    </section>
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+            <!-- Titre -->
+            <div class="text-center mb-16 md:mb-20">
+                <h2 class="text-2xl md:text-5xl font-black text-slate-900 italic tracking-tight">
+                    Notre expertise <span style="color:#1f3a8a;">ServiceNow à 360°</span>
+                </h2>
+                <p class="mt-3 text-slate-500 italic text-sm md:text-base">
+                    Un cycle complet maîtrisé pour garantir le succès de votre plateforme.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+
+                <!-- Ligne centrale desktop -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 hidden md:block -translate-x-1/2"></div>
+
+                <!-- Ligne mobile -->
+                <div class="absolute left-4 top-0 bottom-0 w-px bg-slate-200 md:hidden"></div>
+
+                <div class="space-y-14">
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group">
+                        <div class="relative z-10 ml-0 md:ml-0 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(30,64,175,.7)">
+                            01
+                        </div>
+                        <div class="pl-12 md:pl-0 md:w-1/2 md:pr-12 md:text-right">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Étude & Architecture</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Analyse approfondie de vos processus et conception de l'architecture optimale.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group md:flex-row-reverse">
+                        <div class="relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(21,128,61,.7)">
+                            02
+                        </div>
+                        <div class="pl-12 md:pl-12 md:w-1/2">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Installation & Fondations</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Déploiement technique de l'instance et configuration sécurisée.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group">
+                        <div class="relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(234,179,8,.7)">
+                            03
+                        </div>
+                        <div class="pl-12 md:pl-0 md:w-1/2 md:pr-12 md:text-right">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Paramétrage Métier</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Configuration avancée des modules ServiceNow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group md:flex-row-reverse">
+                        <div class="relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(234,88,12,.7)">
+                            04
+                        </div>
+                        <div class="pl-12 md:pl-12 md:w-1/2">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Personnalisation (Dev)</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Dashboards, scripts et développements spécifiques.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group">
+                        <div class="relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(79,70,229,.7)">
+                            05
+                        </div>
+                        <div class="pl-12 md:pl-0 md:w-1/2 md:pr-12 md:text-right">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Formation & Adoption</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Accompagnement des équipes et conduite du changement.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="relative flex md:flex-row gap-6 items-start group md:flex-row-reverse">
+                        <div class="relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2
+                        w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white shadow-xl
+                        flex items-center justify-center font-black text-white shrink-0"
+                            style="background-color:rgba(219,39,119,.7)">
+                            06
+                        </div>
+                        <div class="pl-12 md:pl-12 md:w-1/2">
+                            <h3 class="text-lg md:text-xl font-bold italic mb-1">Amélioration Continue</h3>
+                            <p class="text-slate-600 text-xs md:text-sm italic">
+                                Maintenance, évolutions et optimisation continue.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden py-16 md:py-24" style="background-color:#1f3a8a;">
+
+        <!-- Texture -->
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+                <!-- TEXTE -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-4xl font-black text-white mb-5 italic leading-tight">
+                        Conformité & <br class="hidden md:block">Bonnes Pratiques
+                    </h2>
+                    <p
+                        class="text-blue-100/80 italic mb-6 md:mb-8 text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+                        Franafrix garantit une implémentation rigoureuse, assurant une structure robuste
+                        et parfaitement adaptée à la culture opérationnelle de votre organisation.
+                    </p>
+                </div>
+
+                <!-- CARTE -->
+                <div class="relative flex justify-center">
+
+                    <!-- Halo -->
+                    <div class="absolute inset-0 bg-blue-400/20 blur-[100px] rounded-full"></div>
+
+                    <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 
+                           p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] 
+                           text-center max-w-xs md:max-w-sm">
+
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-emerald-500/20 rounded-2xl md:rounded-3xl 
+                               flex items-center justify-center mx-auto mb-5 md:mb-6 shadow-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-emerald-400"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+
+                        <h4 class="text-white font-bold text-lg md:text-xl mb-2 md:mb-3 italic">
+                            Garantie Qualité
+                        </h4>
+                        <p class="text-blue-200/70 text-xs md:text-sm italic leading-relaxed">
+                            Chaque déploiement suit un protocole de vérification strict pour une pérennité totale de vos
+                            investissements.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-20 md:py-28 bg-gradient-to-b from-blue-50 to-white text-center overflow-hidden">
+
+        <!-- Halo décoratif -->
+        <div class="absolute inset-0 bg-blue-400/10 blur-[120px]"></div>
+
+        <div class="relative max-w-4xl mx-auto px-6">
+            <h2 class="text-2xl md:text-4xl font-black mb-6 italic text-gray-900 leading-tight">
+                Besoin d’un expert ServiceNow ?
+            </h2>
+
+            <p class="text-gray-600 max-w-2xl mx-auto mb-10 text-base md:text-lg">
+                Accélérez vos projets ServiceNow avec une expertise fiable, structurée et orientée performance.
+            </p>
+
+            <a href="Contact.html" class="inline-flex items-center justify-center 
+                   bg-blue-600 text-white 
+                   px-10 md:px-14 py-4 md:py-5 
+                   rounded-full font-bold 
+                   shadow-xl hover:shadow-2xl 
+                   hover:bg-blue-700 transition-all duration-300">
+                Démarrer mon projet
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-slate-900 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
+                    <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
+                    <a href="mailto:franafrix@gmail.com"
+                        class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
+                    <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
+                </div>
+            </div>
+
+            <div class="h-px w-full bg-slate-800 mb-8"></div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
+                <div class="text-slate-500">
+                    © 2024 Franafrix International — Tous droits réservés
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
+                    <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
+                    <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

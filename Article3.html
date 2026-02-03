@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernisation IT : Les 10 signes | Franafrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
+    </div>
+
+    <div id="mobile-drawer"
+        class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
+        <div class="p-8 h-full flex flex-col">
+            <button id="close-btn" class="self-end mb-12 text-slate-900">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+
+
+            <div class="flex flex-col space-y-9 font-bold uppercase text-[15px] tracking-[0.2em] text-slate-900">
+                <a href="index.html" class="hover:text-blue-600">Accueil</a>
+                <a href="Blog.html" class="text-blue-600 transition">Blog</a>
+
+                <div class="flex flex-col">
+                    <button class="flex justify-between items-center w-full uppercase"
+                        onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
+                        Services <span class="text-[10px]">▼</span>
+                    </button>
+                    <div id="drawer-submenu"
+                        class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
+                        <a href="Conseil&DeveloppementIT.html">Développement IT</a>
+                        <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
+                        <a href="Fourniture.html">Vente & Export</a>
+                    </div>
+                </div>
+
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a>
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            <div class="mt-auto pt-8 border-t border-slate-50">
+                <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="text-2xl font-black tracking-tighter text-blue-900">
+                    FRANAFRIX
+                </div>
+                <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
+            </div>
+            <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- MENU BUREAU -->
+            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600">
+
+                <a href="index.html">Accueil</a> <!-- plus bleu -->
+
+                <!-- Menu Services avec sous-menu -->
+                <div class="relative group cursor-pointer">
+                    <button class="flex items-center gap-1 hover:text-blue-600 transition uppercase text-[12px]">
+                        Services ▾
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
+                        <a href="Conseil&DeveloppementIT.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Développement & Integration IT
+                        </a>
+                        <a href="SolutionsServiceNow.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Solutions ServiceNow
+                        </a>
+                        <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
+                            Vente & Export
+                        </a>
+                    </div>
+                </div>
+
+                <a href="Blog.html" class="text-blue-600 transition">Blog</a>
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a> <!-- ici bleu -->
+                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+            </div>
+
+    </nav>
+
+    <script>
+        const openBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (!isOpen) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('opacity-100');
+                    drawer.classList.remove('-translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('opacity-100');
+                drawer.classList.add('-translate-x-full');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+
+
+    <header class="pt-24 sm:pt-28 pb-12 px-4 sm:px-6 md:px-8 bg-white">
+        <div class="max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto">
+            <span class="text-blue-600 font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em]">Maintenance &
+                Évolution</span>
+            <h1
+                class="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight uppercase">
+                10 signes que votre infrastructure IT doit être modernisée
+            </h1>
+            <p
+                class="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed italic border-l-4 border-blue-600 pl-4 sm:pl-6">
+                Votre système d'information ralentit-il votre croissance ? Voici une checklist pour identifier les
+                points de rupture avant qu'ils ne deviennent critiques.
+            </p>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 -mt-2">
+        <img src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Ancienne infrastructure vs moderne"
+            class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-3xl shadow-2xl">
+    </div>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-16">
+
+        <div class="space-y-6">
+            <div
+                class="flex gap-4 p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-blue-200 transition">
+                <span class="text-3xl font-black text-slate-200">01</span>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 uppercase">Temps de chargement excessifs</h3>
+                    <p class="text-slate-600 text-sm mt-1">Vos collaborateurs passent plus de temps à attendre que leurs
+                        applications s'ouvrent qu'à travailler.</p>
+                </div>
+            </div>
+
+            <div
+                class="flex gap-4 p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-blue-200 transition">
+                <span class="text-3xl font-black text-slate-200">02</span>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 uppercase">Équipements qui chauffent ou font du bruit
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-1">Un signe physique d'usure qui annonce une panne imminente de
+                        vos serveurs ou stations de travail.</p>
+                </div>
+            </div>
+
+            <div
+                class="flex gap-4 p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-blue-200 transition">
+                <span class="text-3xl font-black text-slate-200">03</span>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 uppercase">Logiciels "en fin de vie" (End-of-Life)</h3>
+                    <p class="text-slate-600 text-sm mt-1">Utiliser des versions obsolètes signifie qu'aucune mise à
+                        jour de sécurité n'est plus effectuée.</p>
+                </div>
+            </div>
+
+            <div
+                class="flex gap-4 p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-blue-200 transition">
+                <span class="text-3xl font-black text-slate-200">04</span>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 uppercase">Impossibilité de télétravailler efficacement
+                    </h3>
+                    <p class="text-slate-600 text-sm mt-1">Si vos accès à distance sont lents ou instables, votre
+                        infrastructure cloud est mal configurée.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="mt-12 prose prose-slate max-w-none">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase">Comment y remédier ?</h2>
+            <p class="text-slate-700">La modernisation ne signifie pas forcément tout remplacer d'un coup. Chez
+                <strong>Franafrix</strong>, nous préconisons une approche par étapes :
+            </p>
+
+            <ol class="list-decimal pl-6 space-y-4 text-slate-700 mt-6">
+                <li><strong>Audit Flash :</strong> Identifier les goulots d'étranglement prioritaires.</li>
+                <li><strong>Cloud Hybride :</strong> Migrer les services critiques vers le Cloud pour plus de
+                    flexibilité.</li>
+                <li><strong>Renouvellement intelligent :</strong> Remplacer le matériel obsolète par des solutions à
+                    haute efficacité énergétique.</li>
+            </ol>
+        </div>
+
+        <blockquote class="bg-blue-600 p-8 rounded-2xl text-white my-12">
+            <p class="text-lg font-bold italic leading-tight">
+                "Une infrastructure moderne n'est pas un coût, c'est l'accélérateur n°1 de votre productivité."
+            </p>
+        </blockquote>
+    </main>
+
+    <footer class="py-16 bg-slate-900 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
+                    <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
+                    <a href="mailto:franafrix@gmail.com"
+                        class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
+                    <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
+                </div>
+            </div>
+
+            <div class="h-px w-full bg-slate-800 mb-8"></div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
+                <div class="text-slate-500">
+                    © 2024 Franafrix International — Tous droits réservés
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
+                    <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
+                    <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
