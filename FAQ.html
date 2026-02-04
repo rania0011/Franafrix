@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franafrix | Équipements & Export </title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .export-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        /* =========================
+   RESPONSIVE MOBILE 
+   ========================= */
+
+        @media (max-width: 768px) {
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .hero-pattern {
+                background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+                background-size: 24px 24px;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .animate-scroll {
+                display: flex;
+                width: max-content;
+                animation: scroll 60s linear infinite;
+            }
+
+            /* Animation Side Menu */
+            #menu-overlay.hidden {
+                display: none;
+            }
+
+            #menu-overlay.show {
+                display: block;
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
+    </div>
+
+    <div id="mobile-drawer"
+        class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
+        <div class="p-8 h-full flex flex-col">
+            <button id="close-btn" class="self-end mb-12 text-slate-900">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+
+
+            <div class="flex flex-col space-y-9 font-bold uppercase text-[15px] tracking-[0.2em] text-slate-900">
+                <a href="index.html" class="hover:text-blue-600">Accueil</a>
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+
+                <div class="flex flex-col">
+                    <button class="flex justify-between items-center w-full uppercase"
+                        onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
+                        Services <span class="text-[10px]">▼</span>
+                    </button>
+                    <div id="drawer-submenu"
+                        class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
+                        <a href="Conseil&DeveloppementIT.html">Développement IT</a>
+                        <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
+                        <a href="Fourniture.html">Vente & Export</a>
+                    </div>
+                </div>
+
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a>
+                <a href="FAQ.html" class="text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            <div class="mt-auto pt-8 border-t border-slate-50">
+                <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="text-2xl font-black tracking-tighter text-blue-900">
+                    FRANAFRIX
+                </div>
+                <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
+            </div>
+            <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+
+
+            <!-- MENU BUREAU -->
+            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600">
+
+                <a href="index.html">Accueil</a> <!-- plus bleu -->
+
+                <!-- Menu Services avec sous-menu -->
+                <div class="relative group cursor-pointer">
+                    <button class="flex items-center gap-1 hover:text-blue-600 transition uppercase text-[12px]">
+                        Services ▾
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
+                        <a href="Conseil&DeveloppementIT.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Développement & Integration IT
+                        </a>
+                        <a href="SolutionsServiceNow.html"
+                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                            Solutions ServiceNow
+                        </a>
+                        <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
+                            Vente & Export
+                        </a>
+                    </div>
+                </div>
+
+                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a> <!-- ici bleu -->
+                <a href="FAQ.html" class="text-blue-600 transition">FAQ</a>
+                <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+            </div>
+
+
+    </nav>
+
+    <script>
+        const openBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (!isOpen) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('opacity-100');
+                    drawer.classList.remove('-translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('opacity-100');
+                drawer.classList.add('-translate-x-full');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+
+
+    <div class="bg-white px-6 pt-32 pb-24 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center px-4">
+            <span
+                class="inline-block px-3 py-1 mb-4 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 bg-blue-50 rounded-full">
+                Support & Aide
+            </span>
+
+            <h2
+                class="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-0.02em] text-slate-900 uppercase leading-[1] sm:leading-[0.9]">
+                LES <span class="text-blue-600">QUESTIONS</span><br>
+                <span class="text-slate-200">FREQUENTES</span>
+            </h2>
+
+            <div class="mt-6 sm:mt-10 mx-auto w-16 h-2 sm:w-20 bg-blue-600 rounded"></div>
+
+            <p class="mt-6 text-base sm:text-lg text-slate-600 font-medium tracking-tight max-w-xl mx-auto">
+                Parce que la clarté est le début de chaque <span class="italic">succès digital</span>.
+                Retrouvez ici l'essentiel de notre expertise export et IT.
+            </p>
+        </div>
+
+        <div class="mx-auto mt-8 max-w-full sm:max-w-3xl divide-y divide-slate-100 px-4 sm:px-6">
+
+            <!-- Question 1 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">Où est basée l’entreprise
+                        ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Franafrix est basée en **Seine-et-Marne (France)**. Le pilotage des projets, le développement IT
+                        et la gestion des opérations sont réalisés depuis la France, dans le respect des normes
+                        européennes de
+                        qualité et de sécurité.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">À quels types de clients
+                        s’adresse
+                        Franafrix ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Nous accompagnons un spectre large d'acteurs : **PME, ETI, grands groupes, administrations
+                        publiques,
+                        ONG**
+                        et organisations internationales, aussi bien en France qu'à l’international.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">Comment se déroule la
+                        collaboration avec
+                        Franafrix ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <ol class="text-sm sm:text-base text-slate-600 leading-relaxed list-decimal list-inside space-y-2">
+                        <li><strong>Premier contact :</strong> Envoyez-nous un email décrivant votre projet ou votre
+                            besoin.</li>
+                        <li><strong>Échange initial :</strong> Nous organisons un entretien téléphonique ou en visio
+                            pour comprendre
+                            vos enjeux.</li>
+                        <li><strong>Proposition commerciale :</strong> Nous vous adressons une offre détaillée adaptée à
+                            vos besoins
+                            spécifiques.</li>
+                        <li><strong>Démarrage du projet :</strong> Une fois l'offre validée, nous lançons le projet
+                            selon le
+                            planning convenu.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">Quels sont les secteurs
+                        d'intervention ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <ul class="text-sm sm:text-base text-slate-600 leading-relaxed list-disc list-inside space-y-2">
+                        <li><strong>Services financiers et assurances :</strong> Transformation digitale,
+                            réglementation, gestion
+                            des services informatiques.</li>
+                        <li><strong>Industrie et fabrication :</strong> Automatisation, équipements industriels,
+                            systèmes
+                            d'information de production.</li>
+                        <li><strong>Santé et secteur médical :</strong> Équipements médicaux, systèmes d'information
+                            hospitaliers,
+                            solutions de télémédecine.</li>
+                        <li><strong>Secteur public et administrations :</strong> Modernisation des SI, équipements
+                            professionnels,
+                            conformité RGPD.</li>
+                        <li><strong>Éducation et recherche :</strong> Infrastructure informatique, équipements de
+                            laboratoire,
+                            plateformes éducatives.</li>
+                        <li><strong>Construction et BTP :</strong> Équipements de chantier, matériaux de construction,
+                            solutions de
+                            gestion de projet.</li>
+                    </ul>
+                    <p class="mt-2 italic text-slate-500">
+                        « Chaque projet est traité avec le même niveau d'exigence, d'engagement et de professionnalisme.
+                        Votre
+                        réussite est notre priorité. »
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">Proposez-vous des solutions
+                        sur
+                        mesure ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        **Oui.** Toutes nos prestations sont entièrement personnalisées en fonction des besoins métiers,
+                        des contraintes techniques et des objectifs stratégiques propres à chaque client.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="py-4 sm:py-6">
+                <button class="faq-button flex w-full items-start justify-between text-left text-slate-900">
+                    <span class="text-sm sm:text-base font-bold uppercase tracking-widest">Quels sont vos délais de
+                        réponse
+                        ?</span>
+                    <span class="ml-4 flex items-center">
+                        <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v12M6 12h12" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer hidden mt-2 sm:mt-4 pr-4 sm:pr-12">
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        La réactivité est l'un de nos piliers. Nous nous engageons à répondre **sous 48 heures ouvrées**
+                        à toute demande d’information ou de devis.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20 text-center">
+            <p class="text-slate-500 text-sm italic">Vous ne trouvez pas votre réponse ?</p>
+            <a href="Contact.html"
+                class="mt-4 inline-block px-8 py-4 bg-slate-900 text-white text-xs font-black uppercase tracking-widest rounded-xl hover:bg-blue-600 transition-colors">
+                Posez-nous votre question
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const faqButtons = document.querySelectorAll('.faq-button');
+
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+
+                // Fermer les autres réponses (optionnel)
+                // document.querySelectorAll('.faq-answer').forEach(el => {
+                //     if (el !== answer) el.classList.add('hidden');
+                // });
+
+                // Toggle la réponse actuelle
+                answer.classList.toggle('hidden');
+
+                // Rotation de l'icône + en x
+                if (answer.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+    </script>
+
+    <footer class="py-16 bg-slate-900 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
+                    <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
+                    <a href="mailto:franafrix@gmail.com"
+                        class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
+                    <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
+                </div>
+            </div>
+
+            <div class="h-px w-full bg-slate-800 mb-8"></div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
+                <div class="text-slate-500">
+                    © 2024 Franafrix International — Tous droits réservés
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
+                    <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
+                    <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
