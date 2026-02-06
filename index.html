@@ -1,612 +1,629 @@
+<!-- Déclare que c'est un document HTML5 -->
 <!DOCTYPE html>
+<!-- Langue du document : français -->
+<!-- scroll-smooth : rend le défilement plus fluide -->
 <html lang="fr" class="scroll-smooth">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="FRANAFRIX">
-<meta property="og:site_name" content="FRANAFRIX">
-    <title> FRANAFRIX | International Business Solutions IT</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/favicon.ico">
-    <meta name="description" content="Franafrix accompagne les entreprises dans leur transformation digitale et l'export d'équipements industriels et IT depuis la France vers l'international.">
-   
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #ffffff;
-            color: #1e293b;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .hero-pattern {
-            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-        }
-
-        /* Animation texte défilant */
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .animate-scroll {
-            display: flex;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-        }
-
-        /* Cache le menu mobile par défaut et prépare l'animation */
-        #mobile-menu {
-            transition: all 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-
-        #mobile-menu.open {
-            max-height: 400px;
-            /* Hauteur max du menu ouvert */
-            border-bottom: 1px border-slate-100;
-        }
-
-        /* =========================
-   RESPONSIVE MOBILE 
-   ========================= */
-
-        @media (max-width: 768px) {
+    <!-- 
+        La balise <head> contient toutes les informations "techniques" du site 
+        qui ne s'affichent pas directement sur la page. 
+        Exemple : le titre, les icônes, la description pour Google, les styles CSS, les polices, etc.
+    -->
+    <head>
+         <!-- Définit l'encodage en UTF-8 pour afficher correctement les caractères spéciaux -->
+        <meta charset="UTF-8">
+         <!-- Permet au site de s'adapter à tous les écrans (ordi, tablette, téléphone) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Titre qui s'affiche si le site est partagé sur les réseaux sociaux -->
+        <meta property="og:title" content="FRANAFRIX">
+          <!-- Nom du site pour les réseaux sociaux -->
+        <meta property="og:site_name" content="FRANAFRIX">
+         <!-- Titre qui apparaît dans l'onglet du navigateur -->
+        <title> FRANAFRIX | International Business Solutions IT</title>
+         <!-- Petit icône qui apparaît dans l'onglet du navigateur -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="/favicon.ico">
+        <!-- Description du site pour Google et SEO -->
+        <meta name="description" content="Franafrix accompagne les entreprises dans leur transformation digitale et l'export d'équipements industriels et IT depuis la France vers l'international.">
+       
+        <!-- Charge Tailwind CSS pour styliser le site facilement -->
+        <script src="https://cdn.tailwindcss.com"></script>
+          <!-- Charge la police Plus Jakarta Sans depuis Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+            rel="stylesheet">
+        <!-- 
+        La balise <style> sert à écrire du CSS directement dans le fichier HTML.
+        Le CSS permet de changer l'apparence du site : couleurs, tailles, polices, marges…
+        Tout ce qui est style du site se met ici si on ne veut pas utiliser un fichier CSS séparé.
+        -->
+        <style>
+             /* Styles généraux du site */
             body {
-                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-family: 'Plus Jakarta Sans', sans-serif;  /* Police du site */
+                background-color: #ffffff;  /* Fond blanc */
+                color: #1e293b; /* Couleur du texte */
             }
-
+    
+            .gradient-text {
+                background: linear-gradient(90deg, #2563eb, #10b981);  /* Texte dégradé */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+    
+            .dropdown:hover .dropdown-menu {
+                display: block; /* Affiche le menu déroulant au survol */
+            }
+    
             .hero-pattern {
                 background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
-                background-size: 24px 24px;
+                background-size: 24px 24px; /* Motif derrière les sections héros */
             }
-
+    
+              /* Animation du texte qui défile */
             @keyframes scroll {
                 0% {
                     transform: translateX(0);
                 }
-
+    
                 100% {
                     transform: translateX(-50%);
                 }
             }
-
+    
             .animate-scroll {
                 display: flex;
                 width: max-content;
-                animation: scroll 60s linear infinite;
+                animation: scroll 40s linear infinite; /* Texte qui bouge en continu */
             }
-
-            /* Animation Side Menu */
-            #menu-overlay.hidden {
-                display: none;
+    
+           /* Menu mobile caché par défaut */
+            #mobile-menu {
+                transition: all 0.3s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
             }
-
-            #menu-overlay.show {
-                display: block;
-                opacity: 1;
+    
+            #mobile-menu.open {
+                max-height: 400px; /* Menu ouvert */
+                border-bottom: 1px border-slate-100;
             }
+    
+            /* Styles pour petits écrans (mobile) */
+            @media (max-width: 768px) {
+                body {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                }
+    
+                .hero-pattern {
+                    background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+                    background-size: 24px 24px;
+                }
+    
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
+    
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+    
+                .animate-scroll {
+                    display: flex;
+                    width: max-content;
+                    animation: scroll 60s linear infinite;
+                }
+    
+                /* Animation Side Menu */
+                #menu-overlay.hidden {
+                    display: none;
+                }
+    
+                #menu-overlay.show {
+                    display: block;
+                    opacity: 1;
+                }
+    
+            }
+        </style>
+    </head>
 
-
-
-
-        }
-    </style>
-</head>
-
-<body>
-
-    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
-    </div>
-
-    <div id="mobile-drawer"
-        class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
-        <div class="p-8 h-full flex flex-col">
-            <button id="close-btn" class="self-end mb-12 text-slate-900">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-
-
-
+    <!-- Contenu visible du site -->
+    <body>
+         <!-- Écran sombre derrière le menu mobile -->
+        <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0">
+        </div>
+        
+        <!-- Menu mobile qui glisse depuis la gauche -->
+        <div id="mobile-drawer"
+            class="fixed top-0 left-0 w-[85%] max-w-[400px] h-full bg-white z-[70] transition-transform duration-300 -translate-x-full shadow-2xl">
+            <div class="p-8 h-full flex flex-col">
+                <!-- Bouton pour fermer le menu --> 
+                <button id="close-btn" class="self-end mb-12 text-slate-900">    
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+    
+    
+            <!-- Liens du menu mobile -->
             <div class="flex flex-col space-y-9 font-bold uppercase text-[15px] tracking-[0.2em] text-slate-900">
                 <a href="index.html" class="text-blue-600">Accueil</a>
                 <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
-
+                <!-- Sous-menu Services -->
                 <div class="flex flex-col">
-                    <button class="flex justify-between items-center w-full uppercase"
-                        onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
-                        Services <span class="text-[10px]">▼</span>
-                    </button>
-                    <div id="drawer-submenu"
-                        class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
-                        <a href="Conseil&DeveloppementIT.html">Développement IT</a>
-                        <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
-                        <a href="Fourniture.html">Vente & Export</a>
-                    </div>
+                        <button class="flex justify-between items-center w-full uppercase"
+                            onclick="document.getElementById('drawer-submenu').classList.toggle('hidden')">
+                            Services <span class="text-[10px]">▼</span>
+                        </button>
+                        <div id="drawer-submenu"
+                            class="hidden flex flex-col mt-6 pl-4 space-y-6 text-slate-900 border-l border-slate-100 font-semibold capitalize">
+                            <a href="Conseil&DeveloppementIT.html">Développement IT</a>
+                            <a href="SolutionsServiceNow.html">Solutions ServiceNow</a>
+                            <a href="Fourniture.html">Vente & Export</a>
+                        </div>
                 </div>
-
-                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a>
-                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
-                <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
-            </div>
-
-            <div class="mt-auto pt-8 border-t border-slate-50">
-                <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
-                <div class="flex gap-4">
-                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
-                    <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+    
+                    <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a>
+                    <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                    <a href="Contact.html" class="hover:text-blue-600 transition">Contact</a>
+                </div>
+                <!-- Footer menu mobile -->
+                <div class="mt-auto pt-8 border-t border-slate-50">
+                    <div class="text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Franafrix </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                        <div class="w-8 h-8 rounded-full bg-slate-100"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="text-2xl font-black tracking-tighter text-blue-900">
-                    FRANAFRIX
-                </div>
-                <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
-            </div>
-            <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-
-            <!-- MENU BUREAU -->
-            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600 ">
-
-                <a href="index.html" class="text-blue-600">Accueil</a>
-
-                <!-- Menu Services avec sous-menu -->
-                <div class="relative group cursor-pointer">
-                    <button class="flex items-center gap-1 hover:text-blue-600 transition uppercase text-[12px]">
-                        Services ▾
-                    </button>
-                    <div
-                        class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
-                        <a href="Conseil&DeveloppementIT.html"
-                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
-                            Développement & Integration IT
-                        </a>
-                        <a href="SolutionsServiceNow.html"
-                            class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
-                            Solutions ServiceNow
-                        </a>
-                        <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
-                            Vente & Export
-                        </a>
+       <!-- Navigation principale -->
+        <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="text-2xl font-black tracking-tighter text-blue-900">
+                        FRANAFRIX
                     </div>
+                       <!-- Logo -->
+                    <img src="logo.png" alt="Logo Franafrix" class="h-12 w-auto object-contain">
                 </div>
-
-                <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
-                <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a> <!-- ici bleu -->
-                <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
-                <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+                <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
+                </button>
+    
+                <!-- MENU BUREAU -->
+                <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-slate-600 ">
+    
+                    <a href="index.html" class="text-blue-600">Accueil</a>
+    
+                    <!-- Menu Services avec sous-menu -->
+                    <div class="relative group cursor-pointer">
+                        <button class="flex items-center gap-1 hover:text-blue-600 transition uppercase text-[12px]">
+                            Services ▾
+                        </button>
+                        <div
+                            class="absolute hidden group-hover:block top-full left-0 w-56 bg-white shadow-2xl rounded-xl border border-slate-100 overflow-hidden z-50">
+                            <a href="Conseil&DeveloppementIT.html"
+                                class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                                Développement & Integration IT
+                            </a>
+                            <a href="SolutionsServiceNow.html"
+                                class="block px-6 py-4 hover:bg-blue-50 transition border-b border-slate-50 text-[12px]">
+                                Solutions ServiceNow
+                            </a>
+                            <a href="Fourniture.html" class="block px-6 py-4 hover:bg-blue-50 transition text-[12px]">
+                                Vente & Export
+                            </a>
+                        </div>
+                    </div>
+    
+                    <a href="Blog.html" class="hover:text-blue-600 transition">Blog</a>
+                    <a href="Apropos.html" class="hover:text-blue-600 transition">À Propos</a> <!-- ici bleu -->
+                    <a href="FAQ.html" class="hover:text-blue-600 transition">FAQ</a>
+                    <a href="Contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg text-[11px]">Contact</a>
+                </div> 
+        </nav>
+          <!-- Conteneur principal de la section, prend toute la hauteur de l'écran, centre le contenu -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <!-- Image de fond -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000"
+                    class="w-full h-full object-cover" alt="Background Tech">
+                <div class="absolute inset-0 hero-gradient"></div>
             </div>
-
-
-    </nav>
-
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000"
-                class="w-full h-full object-cover" alt="Background Tech">
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-
-        <div class="relative z-10 text-center px-6 max-w-4xl">
-            <span class="text-blue-400 font-semibold tracking-[0.3em] uppercase mb-4 block text-sm md:text-base">
-                International Business Solutions
-            </span>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                L'avenir de l'industrie, <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                    propulsé par l'IT.
+            <!-- Texte principal -->
+            <div class="relative z-10 text-center px-6 max-w-4xl">
+                <span class="text-blue-400 font-semibold tracking-[0.3em] uppercase mb-4 block text-sm md:text-base">
+                    International Business Solutions
                 </span>
-            </h1>
-            <p class="text-sm sm:text-base md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-                Franafrix transforme les entreprises grâce à un conseil technologique de haut niveau et une distribution
-                internationale d'équipements de pointe.
-            </p>
-        </div>
-    </section>
-
-
-
-    <section class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        <!-- EFFET BLEU DERRIERE L'IMAGE -->
-        <div
-            class="absolute -top-24 -left-24 w-72 sm:w-96 h-72 sm:h-96 bg-blue-500/20 rounded-full blur-[100px] sm:blur-[120px]">
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-
-            <!-- IMAGE À GAUCHE -->
-            <div class="order-2 md:order-1 relative">
-                <div class="absolute -inset-3 sm:-inset-4 bg-blue-500/10 rounded-[2rem] sm:rounded-[3rem] blur-2xl">
-                </div>
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
-                    class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-xl border border-white/50 w-full"
-                    alt="Conseil">
-            </div>
-
-            <!-- TEXTE À DROITE -->
-            <div class="order-1 md:order-2">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
-                    Besoin de solutions IT performantes et évolutives sur mesure ?
-                </h2>
-                <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
-                    On vous aide à choisir et à installer les bons outils pour que votre entreprise fonctionne mieux au
-                    quotidien.
-                </p>
-                <a href="Conseil&DeveloppementIT.html"
-                    class="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all text-sm sm:text-base">
-                    Voir nos services IT
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-        <!-- EFFET ROUGE DISCRET -->
-        <div
-            class="absolute -bottom-24 -right-24 w-72 sm:w-96 h-72 sm:h-96 bg-red-500/5 rounded-full blur-[100px] sm:blur-[120px]">
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-
-            <!-- IMAGE À HAUT SUR MOBILE -->
-            <div class="order-2 md:order-2 relative">
-                <div class="absolute -inset-3 sm:-inset-4 bg-red-500/5 rounded-[2rem] sm:rounded-[3rem] blur-2xl"></div>
-                <img src="https://images.pexels.com/photos/1181311/pexels-photo-1181311.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-lg border border-white/50 w-full"
-                    alt="ServiceNow Expertise">
-            </div>
-
-            <!-- TEXTE À BAS SUR MOBILE -->
-            <div class="order-1 md:order-1 mt-8 md:mt-0">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
-                    Envie de simplifier le travail de vos équipes ?
-                </h2>
-                <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
-                    Nous installons et paramétrons ServiceNow pour automatiser vos tâches et organiser votre travail au
-                    même
-                    endroit.
-                </p>
-                <a href="SolutionsServiceNow.html"
-                    class="inline-block bg-slate-900 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold shadow-xl hover:bg-red-600 transition-all text-sm sm:text-base">
-                    Découvrir nos solutions ServiceNow
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-        <!-- EFFET VERT UN PEU PLUS VISIBLE -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-[600px] h-72 sm:h-[600px] bg-emerald-100/20 rounded-full blur-[80px] sm:blur-[130px]">
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-
-            <!-- IMAGE À GAUCHE -->
-            <div class="order-2 md:order-1 relative group">
-                <div
-                    class="absolute -inset-3 sm:-inset-4 bg-emerald-500/10 rounded-[2rem] sm:rounded-[3rem] blur-2xl group-hover:bg-emerald-500/20 transition">
-                </div>
-                <img src="https://images.pexels.com/photos/6466141/pexels-photo-6466141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl border-4 border-white/50 w-full"
-                    alt="Matériel">
-            </div>
-
-            <!-- TEXTE À DROITE -->
-            <div class="order-1 md:order-2 mt-8 md:mt-0">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
-                    On vous vend tout le matériel utile
-                </h2>
-                <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
-                    Que vous soyez dans le médical, l'industrie, le bâtiment ou l'agriculture, on trouve et on vous
-                    livre
-                    les équipements qu'il vous faut.
-                </p>
-                <a href="Fourniture.html"
-                    class="inline-block bg-emerald-500 text-white px-6 sm:px-8 py-2.5 sm:py-4 rounded-full font-bold shadow-xl shadow-emerald-100 hover:scale-105 transition-all text-sm sm:text-base">
-                    Voir nos services de vente
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="py-32 bg-slate-950 relative overflow-hidden">
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full">
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-blue-500 font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block italic">Présence
-                    Globale</span>
-                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 italic tracking-tighter leading-tight">Une
-                    entreprise <br>sans frontières.</h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto font-light italic leading-relaxed">
-                    De notre siège à Saint-Pierre-les-Nemours, nous orchestrons des projets et livrons du matériel sur
-                    tous
-                    les continents.
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    L'avenir de l'industrie, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                        propulsé par l'IT.
+                    </span>
+                </h1>
+                <p class="text-sm sm:text-base md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+                    Franafrix transforme les entreprises grâce à un conseil technologique de haut niveau et une distribution
+                    internationale d'équipements de pointe.
                 </p>
             </div>
-        </div>
-
-        <div class="relative flex items-center group">
-            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-950 to-transparent z-20"></div>
-            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-950 to-transparent z-20"></div>
-
-            <div class="py-12 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
-                <div class="animate-scroll flex items-center space-x-16 whitespace-nowrap"
-                    style="animation-duration: 60s;">
-                    <div class="flex items-center space-x-16">
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">France</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Sénégal</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Maroc</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Côte
-                            d'Ivoire</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Allemagne</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">États-Unis</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Cameroun</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Canada</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Belgique</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Congo</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Espagne</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Gabon</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Suisse</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Mali</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Chine</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Bénin</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Italie</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Togo</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Tunisie</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Guinée</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Émirats
-                            Arabes Unis</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Burkina
-                            Faso</span>
-                    </div>
-                    <div class="flex items-center space-x-16">
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">France</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Sénégal</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Maroc</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Côte
-                            d'Ivoire</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Allemagne</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">États-Unis</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Cameroun</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Canada</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Belgique</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Congo</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Espagne</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Gabon</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Suisse</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Mali</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Chine</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Bénin</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Italie</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Togo</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Tunisie</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Guinée</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Émirats
-                            Arabes Unis</span>
-                        <span
-                            class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Burkina
-                            Faso</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-
-            <a href="Blog.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
-                <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
-                    <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&q=80&w=600"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        alt="Blog">
-                </div>
-                <h3
-                    class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
-                    Notre blog
-                </h3>
-                <p class="text-slate-500 text-sm font-medium leading-relaxed">
-                    On partage ici les nouveautés et nos petites astuces sur l'informatique et les tendances IT.
-                </p>
-            </a>
-
-            <a href="Apropos.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
-                <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
-                    <img src="image2.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        alt="Propos">
-                </div>
-                <h3
-                    class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
-                    Qui sommes-nous ?
-                </h3>
-                <p class="text-slate-500 text-sm font-medium leading-relaxed">
-                    Découvrez l'histoire de Franafrix, notre vision et notre engagement pour l'excellence.
-                </p>
-            </a>
-
-            <a href="FAQ.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
-                <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
-                    <img src="image3.png"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        alt="FAQ">
-                </div>
-                <h3
-                    class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
-                    Des questions ?
-                </h3>
-                <p class="text-slate-500 text-sm font-medium leading-relaxed">
-                    On a regroupé ici toutes les réponses aux questions que vous nous posez le plus souvent.
-                </p>
-            </a>
-
-        </div>
-    </section>
-
-
-    <section class="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 sm:mb-6 italic">
-                Vous avez une idée ou besoin d'un devis ?
-            </h2>
-            <p class="text-slate-500 text-base sm:text-lg mb-8 sm:mb-10 italic">
-                C'est tout simple, cliquez sur le bouton pour nous envoyer un message.
-            </p>
-            <a href="Contact.html"
-                class="inline-block bg-blue-600 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-blue-700 shadow-xl transition">
-                Aller sur la page de Contact
-            </a>
-        </div>
-    </section>
-
-    <footer class="py-16 bg-slate-900 text-slate-400">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-                <div class="text-center md:text-left">
-                    <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
-                    <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
-                </div>
-
-                <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
-                    <a href="mailto:franafrix@gmail.com"
-                        class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
-                    <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
-                </div>
-            </div>
-
-            <div class="h-px w-full bg-slate-800 mb-8"></div>
-
+        </section>
+    
+    
+        <section class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+            <!-- EFFET BLEU DERRIERE L'IMAGE -->
             <div
-                class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
-                <div class="text-slate-500">
-                    © 2024 Franafrix International — Tous droits réservés
+                class="absolute -top-24 -left-24 w-72 sm:w-96 h-72 sm:h-96 bg-blue-500/20 rounded-full blur-[100px] sm:blur-[120px]">
+            </div>
+    
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+    
+                <!-- IMAGE À GAUCHE -->
+                <div class="order-2 md:order-1 relative">
+                    <div class="absolute -inset-3 sm:-inset-4 bg-blue-500/10 rounded-[2rem] sm:rounded-[3rem] blur-2xl">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+                        class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-xl border border-white/50 w-full"
+                        alt="Conseil">
                 </div>
-
-                <div class="flex gap-8">
-                    <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
-                    <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
-                    <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+    
+                <!-- TEXTE À DROITE -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
+                        Besoin de solutions IT performantes et évolutives sur mesure ?
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
+                        On vous aide à choisir et à installer les bons outils pour que votre entreprise fonctionne mieux au
+                        quotidien.
+                    </p>
+                    <a href="Conseil&DeveloppementIT.html"
+                        class="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all text-sm sm:text-base">
+                        Voir nos services IT
+                    </a>
+                </div>
+    
+            </div>
+        </section>
+    
+        <section class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+            <!-- EFFET ROUGE DISCRET -->
+            <div
+                class="absolute -bottom-24 -right-24 w-72 sm:w-96 h-72 sm:h-96 bg-red-500/5 rounded-full blur-[100px] sm:blur-[120px]">
+            </div>
+    
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+    
+                <!-- IMAGE À HAUT SUR MOBILE -->
+                <div class="order-2 md:order-2 relative">
+                    <div class="absolute -inset-3 sm:-inset-4 bg-red-500/5 rounded-[2rem] sm:rounded-[3rem] blur-2xl"></div>
+                    <img src="https://images.pexels.com/photos/1181311/pexels-photo-1181311.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-lg border border-white/50 w-full"
+                        alt="ServiceNow Expertise">
+                </div>
+    
+                <!-- TEXTE À BAS SUR MOBILE -->
+                <div class="order-1 md:order-1 mt-8 md:mt-0">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
+                        Envie de simplifier le travail de vos équipes ?
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
+                        Nous installons et paramétrons ServiceNow pour automatiser vos tâches et organiser votre travail au
+                        même
+                        endroit.
+                    </p>
+                    <a href="SolutionsServiceNow.html"
+                        class="inline-block bg-slate-900 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold shadow-xl hover:bg-red-600 transition-all text-sm sm:text-base">
+                        Découvrir nos solutions ServiceNow
+                    </a>
+                </div>
+    
+            </div>
+        </section>
+    
+        <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+            <!-- EFFET VERT -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-[600px] h-72 sm:h-[600px] bg-emerald-100/20 rounded-full blur-[80px] sm:blur-[130px]">
+            </div>
+    
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+    
+                <!-- IMAGE À GAUCHE -->
+                <div class="order-2 md:order-1 relative group">
+                    <div
+                        class="absolute -inset-3 sm:-inset-4 bg-emerald-500/10 rounded-[2rem] sm:rounded-[3rem] blur-2xl group-hover:bg-emerald-500/20 transition">
+                    </div>
+                    <img src="https://images.pexels.com/photos/6466141/pexels-photo-6466141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl border-4 border-white/50 w-full"
+                        alt="Matériel">
+                </div>
+    
+                <!-- TEXTE À DROITE -->
+                <div class="order-1 md:order-2 mt-8 md:mt-0">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6 italic leading-snug">
+                        On vous vend tout le matériel utile
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 font-light italic leading-relaxed">
+                        Que vous soyez dans le médical, l'industrie, le bâtiment ou l'agriculture, on trouve et on vous
+                        livre
+                        les équipements qu'il vous faut.
+                    </p>
+                    <a href="Fourniture.html"
+                        class="inline-block bg-emerald-500 text-white px-6 sm:px-8 py-2.5 sm:py-4 rounded-full font-bold shadow-xl shadow-emerald-100 hover:scale-105 transition-all text-sm sm:text-base">
+                        Voir nos services de vente
+                    </a>
+                </div>
+    
+            </div>
+        </section>
+    
+    
+        <section class="py-32 bg-slate-950 relative overflow-hidden">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full">
+            </div>
+    
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <span class="text-blue-500 font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block italic">Présence
+                        Globale</span>
+                    <h2 class="text-4xl md:text-6xl font-black text-white mb-6 italic tracking-tighter leading-tight">Une
+                        entreprise <br>sans frontières.</h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto font-light italic leading-relaxed">
+                        De notre siège à Saint-Pierre-les-Nemours, nous orchestrons des projets et livrons du matériel sur
+                        tous
+                        les continents.
+                    </p>
                 </div>
             </div>
-        </div>
-    </footer>
-
-    <script>
-        const openBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const drawer = document.getElementById('mobile-drawer');
-        const overlay = document.getElementById('menu-overlay');
-
-        function toggleMenu() {
-            const isOpen = !drawer.classList.contains('-translate-x-full');
-            if (!isOpen) {
-                overlay.classList.remove('hidden');
-                setTimeout(() => {
-                    overlay.classList.add('opacity-100');
-                    drawer.classList.remove('-translate-x-full');
-                }, 10);
-                document.body.style.overflow = 'hidden';
-            } else {
-                overlay.classList.remove('opacity-100');
-                drawer.classList.add('-translate-x-full');
-                setTimeout(() => overlay.classList.add('hidden'), 300);
-                document.body.style.overflow = '';
+    
+            <div class="relative flex items-center group">
+                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-950 to-transparent z-20"></div>
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-950 to-transparent z-20"></div>
+    
+                <div class="py-12 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
+                    <div class="animate-scroll flex items-center space-x-16 whitespace-nowrap"
+                        style="animation-duration: 60s;">
+                        <div class="flex items-center space-x-16">
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">France</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Sénégal</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Maroc</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Côte
+                                d'Ivoire</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Allemagne</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">États-Unis</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Cameroun</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Canada</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Belgique</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Congo</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Espagne</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Gabon</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Suisse</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Mali</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Chine</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Bénin</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Italie</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Togo</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Tunisie</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Guinée</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Émirats
+                                Arabes Unis</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Burkina
+                                Faso</span>
+                        </div>
+                        <div class="flex items-center space-x-16">
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">France</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Sénégal</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Maroc</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Côte
+                                d'Ivoire</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Allemagne</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">États-Unis</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Cameroun</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Canada</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Belgique</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Congo</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Espagne</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Gabon</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Suisse</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Mali</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Chine</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Bénin</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Italie</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Togo</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Tunisie</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-blue-500 italic tracking-tighter uppercase">Guinée</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/20 italic tracking-tighter uppercase">Émirats
+                                Arabes Unis</span>
+                            <span
+                                class="text-2xl md:text-4xl font-black text-white/80 italic tracking-tighter uppercase">Burkina
+                                Faso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    
+    
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+    
+                <a href="Blog.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
+                        <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&q=80&w=600"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="Blog">
+                    </div>
+                    <h3
+                        class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
+                        Notre blog
+                    </h3>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed">
+                        On partage ici les nouveautés et nos petites astuces sur l'informatique et les tendances IT.
+                    </p>
+                </a>
+    
+                <a href="Apropos.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
+                        <img src="image2.png"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="Propos">
+                    </div>
+                    <h3
+                        class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
+                        Qui sommes-nous ?
+                    </h3>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed">
+                        Découvrez l'histoire de Franafrix, notre vision et notre engagement pour l'excellence.
+                    </p>
+                </a>
+    
+                <a href="FAQ.html" class="group block cursor-pointer transition-transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 shadow-md group-hover:shadow-2xl transition-all">
+                        <img src="image3.png"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            alt="FAQ">
+                    </div>
+                    <h3
+                        class="text-xl font-black mb-3 italic underline decoration-blue-500 underline-offset-4 group-hover:text-blue-600 transition-colors">
+                        Des questions ?
+                    </h3>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed">
+                        On a regroupé ici toutes les réponses aux questions que vous nous posez le plus souvent.
+                    </p>
+                </a>
+    
+            </div>
+        </section>
+    
+    
+        <section class="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 sm:mb-6 italic">
+                    Vous avez une idée ou besoin d'un devis ?
+                </h2>
+                <p class="text-slate-500 text-base sm:text-lg mb-8 sm:mb-10 italic">
+                    C'est tout simple, cliquez sur le bouton pour nous envoyer un message.
+                </p>
+                <a href="Contact.html"
+                    class="inline-block bg-blue-600 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-blue-700 shadow-xl transition">
+                    Aller sur la page de Contact
+                </a>
+            </div>
+        </section>
+    
+        <footer class="py-16 bg-slate-900 text-slate-400">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                    <div class="text-center md:text-left">
+                        <div class="text-2xl font-black text-white mb-2">FRANA<span class="text-blue-600">FRIX</span></div>
+                        <p class="text-xs uppercase tracking-widest text-slate-500">On vous accompagne partout.</p>
+                    </div>
+    
+                    <div class="flex flex-col items-center md:items-end gap-2 text-xs uppercase tracking-widest font-bold">
+                        <a href="mailto:franafrix@gmail.com"
+                            class="text-white hover:text-blue-500 transition">franafrix@gmail.com</a>
+                        <p class="text-slate-500 italic lowercase font-light">Seine-et-Marne, France</p>
+                    </div>
+                </div>
+    
+                <div class="h-px w-full bg-slate-800 mb-8"></div>
+    
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.2em]">
+                    <div class="text-slate-500">
+                        © 2024 Franafrix International — Tous droits réservés
+                    </div>
+    
+                    <div class="flex gap-8">
+                        <a href="Mentionslegales.html" class="hover:text-white transition">Mentions Légales</a>
+                        <a href="Politique.html" class="hover:text-white transition">Politique de Confidentialité</a>
+                        <a href="RGPD.html" class="hover:text-white transition">RGPD</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Script menu mobile -->
+        <script>
+            const openBtn = document.getElementById('menu-btn'); // bouton ouvrir
+            const closeBtn = document.getElementById('close-btn');  // bouton fermer 
+            const drawer = document.getElementById('mobile-drawer'); // menu mobile
+            const overlay = document.getElementById('menu-overlay');  // écran sombre
+    
+            function toggleMenu() {
+                const isOpen = !drawer.classList.contains('-translate-x-full');
+                if (!isOpen) {
+                    overlay.classList.remove('hidden');
+                    setTimeout(() => {
+                        overlay.classList.add('opacity-100');
+                        drawer.classList.remove('-translate-x-full');
+                    }, 10);
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    overlay.classList.remove('opacity-100');
+                    drawer.classList.add('-translate-x-full');
+                    setTimeout(() => overlay.classList.add('hidden'), 300);
+                    document.body.style.overflow = '';
+                }
             }
-        }
-
-        openBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-    </script>
-</body>
+    
+            openBtn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+        </script>
+    </body>
 
 </html>
